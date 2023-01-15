@@ -38,7 +38,7 @@ export default function Carousel() {
       title: "Shopping! Gappy ji is Now Happy ji",
       text: "Here are Men's, Women's, Clothes and Shoes Collection, where you can buy Shoes and clothes with great prices",
       image:
-        "https://png.pngtree.com/thumb_back/fw800/background/20201010/pngtree-black-friday-sale-background-design-template-banner-discount-vector-poster-business-image_407567.jpg",
+        "../../img/EMC2.png",
     },
   ];
 

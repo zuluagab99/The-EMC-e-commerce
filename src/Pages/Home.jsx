@@ -14,25 +14,25 @@ import Loading from "../components/Loading/Loading";
 import Trending from "../components/Trends/Trending";
 import { imagesData } from "../utils/data";
 import Navbar from "../components/Navbar/Navbar"
+import CaptionCarousel from "../components/Carousel/Carousel2";
+import WithBackgroundImage from "../components/Hero/Hero";
+import ProductSimple from "../components/ProductsDisplay/ProductSimple";
 
 const Home = () => {
   const loading = useSelector((store) => store.pagesReducer.isLoading);
   const navigate = useNavigate();
   return (
     <div>
-      <Navbar/> <br/>
-      {loading ? (
-        <Loading />
-      ) : (
-        <Box w="95%" m="auto">
-          <Carousel />
-          <Trending />
-        </Box>
-      )}
-
+      <Navbar/> 
+      <br/>
+      <WithBackgroundImage />
+      <br/>
+      <ProductSimple />
+      <ProductGrid> </ProductGrid>
+      <br/>
       <Box my={"10"}>
         <Stack spacing={"5"} mx={"9"} my={"6"}>
-          <Heading textAlign={"left"}>WHO ARE YOU SHOPPING FOR?</Heading>
+          <Heading textAlign={"left"}>Encuentra todo lo que buscas</Heading>
           <Box gap="1rem">
             {imagesData.map((item) => (
               <Box
@@ -104,14 +104,14 @@ const Home = () => {
         </Stack>
         <Flex
           my={"10"}
-          bg="yellow"
+          bg="orange"
           color={"black"}
           p="3rem "
           justify={"center"}
           gap="2rem"
           display={"block"}
         >
-          <Heading>JOIN ADIDAS AND GET 15% OFF</Heading>
+          <Heading>Registrate con nostros y obtén hasta un 15% de descuento</Heading>
           <Button
             my={"4"}
             bg="black"

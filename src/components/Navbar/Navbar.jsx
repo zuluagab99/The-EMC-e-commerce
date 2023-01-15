@@ -13,6 +13,8 @@ import {
   useMediaQuery,
 } from "@chakra-ui/react";
 import logo from "../../img/favicon.ico";
+import emcLogoLight from "../../img/EMC2.png";
+import emcLogoDark from "../../img/EMC3.png"
 //import { FiUser } from "react-icons/fi";
 import { BsSuitHeart } from "react-icons/bs";
 import { BsBag } from "react-icons/bs";
@@ -61,7 +63,7 @@ const Navbar = () => {
         justifyContent={"right"}
         gap="10px"
         alignItems={"center"}
-        bg={colorMode === "dark" ? "none" : "#ebecec"}
+        bg={colorMode === "dark" ? "none" : "#FF7300"}
       >
         {auth ? (
           <Box>
@@ -69,16 +71,15 @@ const Navbar = () => {
           </Box>
         ) : (
           <Button
-            bg={"black"}
             color={"whitesmoke"}
-            border={"1px solid beige"}
+            bg="transparent"
             _hover={{
               bg: "none",
               color: "teal",
             }}
             onClick={handleSignup}
           >
-            Sign up
+            Iniciar sesión
           </Button>
         )}
         <Box mr={["5", "6", "7", "9"]}>
@@ -88,7 +89,7 @@ const Navbar = () => {
       </Flex>
       <Flex fontWeight="bold">
         <HStack onClick={handleHome} cursor={"pointer"}>
-          <Image width={["25px"]} m={5} src={logo} alt="logo" />
+          <Image width={["100px"]} m={5} src={ colorMode ==="dark" ? emcLogoDark : emcLogoLight} />
         </HStack>
         <Spacer />
         {isLargerThan ? (
@@ -102,7 +103,7 @@ const Navbar = () => {
                 my="4"
                 mx="2"
               >
-                Home
+                Inicio
               </Text>
             </NavLink>
             <NavLink
@@ -114,7 +115,7 @@ const Navbar = () => {
                 my="4"
                 mx="2"
               >
-                AllProducts
+                Todos los productos
               </Text>
             </NavLink>
             <NavLink
@@ -126,7 +127,7 @@ const Navbar = () => {
                 my="4"
                 mx="2"
               >
-                Men
+                Hombre
               </Text>
             </NavLink>
             <NavLink
@@ -138,10 +139,10 @@ const Navbar = () => {
                 my="4"
                 mx="2"
               >
-                Women
+                Mujer
               </Text>
             </NavLink>
-            <NavLink
+{/*             <NavLink
               style={({ isActive }) => (isActive ? activeStyle : baseStyle)}
               to="/shoes"
             >
@@ -152,7 +153,7 @@ const Navbar = () => {
               >
                 Shoes
               </Text>
-            </NavLink>
+            </NavLink> */}
           </HStack>
         ) : null}
 
@@ -190,7 +191,7 @@ const Navbar = () => {
                 left="-25px"
                 borderRadius="50%"
                 p="0rem 0.3rem"
-                bg="blue.500"
+                bg="#ed7133"
                 color="white"
               >
                 {wishlist ? wishlist.length : 0}
@@ -211,7 +212,7 @@ const Navbar = () => {
                 left="-25px"
                 borderRadius="50%"
                 p="0rem 0.3rem"
-                bg="blue.500"
+                bg="#ed7133"
                 color="white"
               >
                 {cart ? cart.length : 0}

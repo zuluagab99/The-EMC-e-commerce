@@ -6,6 +6,7 @@ import {
   FormControl,
   FormLabel,
   Heading,
+  Image,
   Input,
   InputGroup,
   InputRightElement,
@@ -23,6 +24,8 @@ import { login } from "../redux/AuthReducer/action";
 //import { LOGIN_S } from "../redux/AuthReducer/actionType";
 import Navbar from "../components/Navbar/Navbar";
 import { ViewIcon } from "@chakra-ui/icons";
+import emcLogo from "../img/EMC3.png";
+
 const Login = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -79,15 +82,18 @@ const Login = () => {
     <>
       <Flex minH={"100vh"} align={"center"} justify={"center"}>
         <Stack spacing={8} mx={"auto"} maxW={"lg"} py={12} px={6}>
-          <Stack align={"center"}>
-            <Heading fontSize={"4xl"} textTransform={"uppercase"}>
-              Sign in to your account
-            </Heading>
-          </Stack>
+
           <Box rounded={"lg"} boxShadow={"lg"} p={8}>
+            <Stack align={"center"}>
+              <Image width={["100px"]} m="-1" src={emcLogo}/>
+              <Heading fontSize={"4xl"} color="black">
+              Iniciar sesión
+              </Heading>
+              
+             </Stack>
             <Stack spacing={4}>
               <FormControl id="username" isRequired>
-                <FormLabel>Email</FormLabel>
+                <FormLabel>Correo electrónico</FormLabel>
                 <Input
                   type="text"
                   value={email}
@@ -95,7 +101,7 @@ const Login = () => {
                 />
               </FormControl>
               <FormControl id="password" isRequired>
-                <FormLabel>Password</FormLabel>
+                <FormLabel>Contraseña</FormLabel>
                 <InputGroup>
                   <Input
                     type={eye ? "text" : "password"}
@@ -115,27 +121,27 @@ const Login = () => {
                   align={"start"}
                   justify={"space-between"}
                 >
-                  <Checkbox>Remember me</Checkbox>
-                  <Link color={"blue.400"}>Forgot password?</Link>
+                  <Checkbox>Recordar datos</Checkbox>
+                  <Link color={"#ed7133"}>¿Olvidaste tu contraseña?</Link>
                 </Stack>
                 <Button
                   bg={"black"}
                   color={"whitesmoke"}
                   _hover={{
-                    bg: "none",
-                    color: "black",
-                    border: "1px solid black",
+                    bg: "#ed7133",
+                    color: "white",
+                    border: "1px solid #ed7133",
                   }}
                   onClick={loginHandler}
                 >
-                  {loading ? <Spinner /> : "Sign in"}
+                  {loading ? <Spinner /> : "Ingresar"}
                 </Button>
               </Stack>
               <Stack pt={6}>
                 <Text align={"center"}>
-                  Don't have an account?
-                  <RouterLink to="/register" color={"blue.400"}>
-                    Signup
+                  ¿No tienes cuenta?
+                  <RouterLink to="/register" color={"#ed7133"}>
+                     Registrarse
                   </RouterLink>
                 </Text>
               </Stack>
@@ -148,8 +154,3 @@ const Login = () => {
 };
 
 export default Login;
-
-// swal({
-//   text: "Login Success",
-//   icon: "success",
-// });

@@ -4,6 +4,7 @@ import {
   Box,
   FormControl,
   FormLabel,
+  Image,
   Input,
   InputGroup,
   HStack,
@@ -31,6 +32,7 @@ import {
   checkSignupForm,
   setToast,
 } from "../components/Other/CheckProperty";
+import emcLogo from "../img/EMC3.png"
 
 const initialState = {
   name: "",
@@ -129,26 +131,29 @@ const Signup = () => {
       bg={useColorModeValue("gray.50", "gray.800")}
     >
       <Stack spacing={8} mx={"auto"} maxW={"lg"} py={12} px={6}>
-        <Stack align={"center"}>
-          <Heading
-            textTransform={"uppercase"}
-            fontSize={"4xl"}
-            textAlign={"center"}
-          >
-            Sign up
-          </Heading>
-        </Stack>
+
         <Box
           rounded={"lg"}
           bg={useColorModeValue("white", "gray.700")}
           boxShadow={"lg"}
           p={8}
         >
+          <Stack align={"center"}>
+            <Image width={["100px"]} m="-1" src={emcLogo}/>
+
+            <Heading
+            fontSize={"4xl"}
+            textAlign={"center"}
+            >
+              Registrarse
+            </Heading>
+          </Stack>
+
           <Stack spacing={4}>
             <HStack>
               <Box>
                 <FormControl id="Name" isRequired>
-                  <FormLabel>Name</FormLabel>
+                  <FormLabel>Nombre</FormLabel>
                   <Input
                     type="text"
                     value={state.name}
@@ -160,7 +165,7 @@ const Signup = () => {
               </Box>
               <Box>
                 <FormControl id="username" isRequired>
-                  <FormLabel>Username</FormLabel>
+                  <FormLabel>Usuario</FormLabel>
                   <Input
                     type="text"
                     value={state.username}
@@ -172,7 +177,7 @@ const Signup = () => {
               </Box>
             </HStack>
             <FormControl id="email" isRequired>
-              <FormLabel>Email address</FormLabel>
+              <FormLabel>Dirección de correo</FormLabel>
               <Input
                 type="email"
                 value={state.email}
@@ -182,7 +187,7 @@ const Signup = () => {
               />
             </FormControl>
             <FormControl id="password" isRequired>
-              <FormLabel>Password</FormLabel>
+              <FormLabel>Contraseña</FormLabel>
               <InputGroup>
                 <Input
                   type={eye ? "text" : "password"}
@@ -200,7 +205,7 @@ const Signup = () => {
             </FormControl>
             <Box>
               <FormControl id="mobile" isRequired>
-                <FormLabel>Mobile</FormLabel>
+                <FormLabel>Teléfono</FormLabel>
                 <Input
                   type="number"
                   value={state.mobile}
@@ -210,24 +215,6 @@ const Signup = () => {
                 />
               </FormControl>
             </Box>
-            <Box>
-              <FormLabel>Image</FormLabel>
-              <Editable
-                color={"darkgrey"}
-                placeholder="Paste Link..."
-                overflow={'hidden'}
-                align={"justify"}
-              >
-                <EditablePreview />
-                <EditableTextarea
-
-                  value={state.description}
-                  onChange={(e) =>
-                    setState({ type: "description", payload: e.target.value })
-                  }
-                />
-              </Editable>
-            </Box>
             <Stack spacing={10} pt={2}>
               <Button
                 loadingText="Submitting"
@@ -235,20 +222,20 @@ const Signup = () => {
                 bg={"black"}
                 color={"whitesmoke"}
                 _hover={{
-                  bg: "none",
-                  color: "black",
-                  border: "1px solid black",
+                  bg: "#ed7133",
+                  color: "white",
+                  border: "1px solid #ed7133",
                 }}
                 onClick={signupHandle}
               >
-                {loading ? <Spinner /> : "Sign up"}
+                {loading ? <Spinner /> : "Registrarme"}
               </Button>
             </Stack>
             <Stack pt={6}>
               <Text align={"center"}>
-                Already a user?
+                ¿Ya estás registrado?
                 <RouterLink to="/login" color={"blue.400"}>
-                  Login
+                  Iniciar sesión
                 </RouterLink>
               </Text>
             </Stack>
